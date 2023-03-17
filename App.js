@@ -94,7 +94,7 @@ return(
             const biometricAuth = await LocalAuthentication.authenticateAsync({
                   promptMessage: 'Login with Biometrics',
                   disableDeviceFallback: true,
-                  cancelLabel:"I am not interested in biometric Authentication"
+                  cancelLabel:"Cancel"
                 });
                 console.log("bimometricAuth",biometricAuth);
           }
