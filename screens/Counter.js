@@ -11,6 +11,7 @@ import exerciseImg from '../image/exercise2.png';
 import ProgressBar from 'react-native-progress/Bar';
 import { FontAwesome5 } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Link } from '@react-navigation/native';
 // import { Ionicons} from 'react-native-vector-icons';
 // import { Button } from 'react-native-elements';
 // import { IconButton } from 'react-native-paper';
@@ -187,10 +188,9 @@ setCounter(3);
 }
 
 //share 
-
-const shareProgress = async() =>{
+const mySpotterShare = async() =>{
   const shareOptions = {
-    message: 'This is a test'
+    message: 'https://dev.stedi.me/timer.html#'+token.current, 
   }
   try{
     const shareResponse = await Share.share(shareOptions)
@@ -328,6 +328,13 @@ elevation: 4}}>
       <Text>{subscription ? 'Stop' : 'GO'}</Text>
      </TouchableOpacity>
 
+     <TouchableOpacity 
+      onPress={mySpotterShare} 
+      style={styles.button}>
+      <Text>{'Add Spotter'}</Text>
+     </TouchableOpacity>
+     
+
      </CardContent>
      <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#A0CE4E'} style={styles.bar}/>
 </Card>
@@ -433,7 +440,7 @@ const styles = StyleSheet.create({
 
   button: {
     marginTop: 15,
-    marginBottom: 20,
+    marginBottom: -5,
     width: 170,
     height: 38,
     justifyContent: 'center',
