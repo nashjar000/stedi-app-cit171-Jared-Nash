@@ -47,7 +47,7 @@ const Profile = (props) => {
 
   const myCustomerShare = async() =>{
     const shareOptions = {
-      message: 'This is a test'
+      message: 'https://stedibalance.com'
     }
     try{
       const shareResponse = await Share.share(shareOptions)
